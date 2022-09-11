@@ -1,0 +1,41 @@
+# Workflow to ensure whenever a Github PR is submitted, 
+# a JIRA ticket gets created automatically. 
+name: CICD on github
+
+# Controls when the action will run. 
+on:
+  push:
+    branches: 
+      - 'main'
+  pull_request:
+    branches: 
+      - 'main'
+
+jobs:
+  docker:
+    build:
+      runs-on: ubuntu-latest
+    steps: 
+    - 
+      uses: actions/checkout@v3
+      name: Checkout
+    -
+      name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    -
+      name: Login to DockerHub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+    -
+      name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/trangocquy123:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/trangocquy123:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/trangocquy123:buildcache,mode=max
