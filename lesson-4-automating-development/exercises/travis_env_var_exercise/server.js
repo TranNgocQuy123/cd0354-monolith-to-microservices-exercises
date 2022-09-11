@@ -5,7 +5,7 @@ function sleep(ms) {
 
 async function main() {
   while(true) {
-    console.log("Microservices rock!");
+    console.log("Microservices rock 111!");
     await sleep(5000);
   }
 }
