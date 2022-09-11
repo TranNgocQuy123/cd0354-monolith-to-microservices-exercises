@@ -1,6 +1,6 @@
 # Workflow to ensure whenever a Github PR is submitted, 
 # a JIRA ticket gets created automatically. 
-name: CICD on github
+name: CI docker
 
 # Controls when the action will run. 
 on:
