@@ -1,6 +1,6 @@
 # Monolith to Microservices Exercise and Demo Code
 
-This repo contains code for all of the exercises in the Monolith to Microservices at Scale
+This repo contains code for all of the exercises in the Monolith to Microservices at Scale and QuyTN7
 
 ## Lesson 1: Introduction to Microservices
 
@@ -8,7 +8,7 @@ No exercise or demos code
 
 ## Lesson 2: Microservices Design Principles and Best Practices
 
-No exercise or demos code
+No exercise or demos code 
 
 ## Lesson 3: Containers Using Docker
 
