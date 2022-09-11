@@ -5,7 +5,7 @@ function sleep(ms) {
 async function main() {
   while(true) {
     console.log('Containers rule!');
-    console.log('Hello World!')
+    console.log('Hello World 123!')
     await sleep(5000);
   }
 }
